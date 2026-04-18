@@ -3,7 +3,8 @@
 import config from "@/config";
 
 /**
- * App mark: first letter of app name + wordmark (template-friendly).
+ * CJGEO logo: single coin mark with “C” + app name.
+ * Use size="md" for header, size="sm" for footer.
  */
 export default function Logo({ size = "md" }) {
   const isSm = size === "sm";
@@ -11,7 +12,6 @@ export default function Logo({ size = "md" }) {
   const textClass = isSm
     ? "font-extrabold tracking-tight text-base md:text-lg"
     : "font-extrabold text-lg";
-  const letter = String(config.appName || "A").trim().charAt(0).toUpperCase() || "A";
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Logo({ size = "md" }) {
         className={`${coinSize} shrink-0 rounded-full bg-gradient-to-br from-primary to-primary/75 flex items-center justify-center font-extrabold text-primary-content shadow-sm ring-1 ring-primary/20`}
         aria-hidden
       >
-        {letter}
+        C
       </span>
       <span className={textClass}>{config.appName}</span>
     </>

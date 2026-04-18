@@ -1,18 +1,20 @@
 "use client";
 import React from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import config from "@/config";
 
 export default function SidebarHeader({ onClose, isCollapsed, onToggleCollapse }) {
+  const letter = String(config.appName || "A").trim().charAt(0).toUpperCase() || "A";
   return (
     <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
       <div className="flex items-center space-x-3 min-w-0">
         <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
-          <span className="text-white font-bold text-sm">CJ</span>
+          <span className="text-white font-bold text-sm">{letter}</span>
         </div>
         {!isCollapsed && (
           <div className="min-w-0">
-            <h1 className="text-xl font-bold text-gray-900">CJGEO</h1>
-            <p className="text-xs text-gray-500">Visibility Intelligence</p>
+            <h1 className="text-xl font-bold text-gray-900">{config.appName}</h1>
+            <p className="text-xs text-gray-500">App shell</p>
           </div>
         )}
       </div>
